@@ -160,7 +160,7 @@ namespace EnerdsTelegramBot
 
             }
             //
-            MessageBox.Show("Test");
+            
 
             if (lblStatus.Text == "ONLINE" || e.Cancel == true )
             {
