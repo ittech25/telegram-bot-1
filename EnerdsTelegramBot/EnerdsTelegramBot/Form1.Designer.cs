@@ -30,24 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtToken = new System.Windows.Forms.TextBox();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnHide = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.txtToken = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgReport = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,14 +63,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Token";
             // 
-            // txtToken
+            // btnStop
             // 
-            this.txtToken.Location = new System.Drawing.Point(332, 23);
-            this.txtToken.Name = "txtToken";
-            this.txtToken.PasswordChar = '*';
-            this.txtToken.Size = new System.Drawing.Size(438, 24);
-            this.txtToken.TabIndex = 0;
-            this.txtToken.Text = "1007013476:AAGT_P-VxsjZ7RbHREpjgwyn7C2o5KVyBF8";
+            this.btnStop.Location = new System.Drawing.Point(74, 24);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(58, 23);
+            this.btnStop.TabIndex = 4;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnHide
+            // 
+            this.btnHide.Location = new System.Drawing.Point(169, 25);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(75, 23);
+            this.btnHide.TabIndex = 3;
+            this.btnHide.Text = "Hide Token";
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(250, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 24);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Show Token";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnStart
             // 
@@ -82,6 +102,15 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // txtToken
+            // 
+            this.txtToken.Location = new System.Drawing.Point(332, 23);
+            this.txtToken.Name = "txtToken";
+            this.txtToken.PasswordChar = '*';
+            this.txtToken.Size = new System.Drawing.Size(438, 24);
+            this.txtToken.TabIndex = 0;
+            this.txtToken.Text = "1007013476:AAGT_P-VxsjZ7RbHREpjgwyn7C2o5KVyBF8";
             // 
             // statusStrip1
             // 
@@ -99,16 +128,6 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(52, 17);
             this.lblStatus.Text = "OFFLINE";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(250, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 24);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Show Token";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgReport
             // 
@@ -158,35 +177,13 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // pictureBox1
+            // textBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(300, 357);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 159);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnHide
-            // 
-            this.btnHide.Location = new System.Drawing.Point(169, 25);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(75, 23);
-            this.btnHide.TabIndex = 3;
-            this.btnHide.Text = "Hide Token";
-            this.btnHide.UseVisualStyleBackColor = true;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Location = new System.Drawing.Point(74, 24);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(58, 23);
-            this.btnStop.TabIndex = 4;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.textBox1.Location = new System.Drawing.Point(324, 357);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(464, 108);
+            this.textBox1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -194,7 +191,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 621);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgReport);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
@@ -213,7 +210,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,9 +229,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
