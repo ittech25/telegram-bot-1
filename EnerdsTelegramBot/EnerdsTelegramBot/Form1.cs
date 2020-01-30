@@ -33,6 +33,19 @@ namespace EnerdsTelegramBot
         private void btnStart_Click(object sender, EventArgs e)
         {
 
+            string writerfile = @".\token.txt";
+            using (StreamWriter writer = new StreamWriter(writerfile))
+            {
+                writer.Write(txtToken.Text);
+
+            }
+            //
+
+            var fileText = File.ReadAllText(@".\token.txt");
+            txtToken.Text = fileText;
+
+
+
 
 
             Token = txtToken.Text;
@@ -44,6 +57,13 @@ namespace EnerdsTelegramBot
         private void Form1_Load(object sender, EventArgs e)
         // address site emoji ha : https://apps.timwhitlock.info/emoji/tables/unicode
         {
+            //save akhbar to file txt
+
+
+
+
+
+
             //khandane akhbar
             var fileText = File.ReadAllText(@".\news.txt");
             textBox1.Text = fileText;
@@ -58,12 +78,14 @@ namespace EnerdsTelegramBot
 
             KeyboardButton[] row2 =
             {
-                new KeyboardButton("آدرس وب سایت ما"+ " " + "\U0001F4E7"),new KeyboardButton("نظرسنجی"+ " " + "\U0001F4E7"),new KeyboardButton("آخرین اخبار"+ " " + "\U0001F4E7"),
+                new KeyboardButton("آدرس وب سایت ما"+ " " + "\U0001F4E7"),new KeyboardButton("نظرسنجی"+ " " + "\U0001F4E7"),new KeyboardButton("آخرین اخبار"+ " " + "\U0001F4E7"), new KeyboardButton("وضعیت استریم"),
             };
             mainKeyboardMarkup.Keyboard = new KeyboardButton[][]
             {
                 row1,row2
             };
+
+
             //
         }
 
@@ -100,6 +122,7 @@ namespace EnerdsTelegramBot
                         sb.AppendLine("Contact US : /Contact");
                         sb.AppendLine("Address : /Website");
                         sb.AppendLine("News : /News");
+                        sb.AppendLine("Stream Status : /StreamStatus");
                         bot.SendTextMessageAsync(chatId, sb.ToString(), Telegram.Bot.Types.Enums.ParseMode.Default, false, false, 0, mainKeyboardMarkup);
                     }
                     // yademan bashad hatman az horof kochak estefade shavad be in elat .tolower estefade shode dar line 61 ***
@@ -118,7 +141,7 @@ namespace EnerdsTelegramBot
                     }
                     else if (text.Contains("/website") || text.Contains("آدرس وب سایت ما"))
                     {
-                        string website = "https://www.enerds.io";
+                        string website = "https://www.alibesi.tv";
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine($"Visit our website {website}");
                         bot.SendTextMessageAsync(chatId, sb.ToString());
@@ -132,9 +155,24 @@ namespace EnerdsTelegramBot
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine($"آخرین اخبار : {news}");
                         bot.SendTextMessageAsync(chatId, sb.ToString());
-                        string xml = @"<Values><default>1.5</default></Values>";
 
+                    }
 
+                    else if (text.Contains("/streamstatus") || text.Contains("وضعیت استریم"))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        string twitch = "https://www.twitch.tv/alibesi";
+                        string website = "https://www.alibesi.tv";
+                        if (rdoBtn1.Checked)
+                        {
+                            sb.AppendLine($"استریم در حال پخش می باشد برای تماشا به آدرس{twitch} مراجه نمایید ");
+                            bot.SendTextMessageAsync(chatId, sb.ToString());
+                        }
+                        else if (rdoBtn2.Checked)
+                        {
+                            sb.AppendLine($"استریم در حال حاضر آفلاین می باشد برای اطلاع از آخرین اخبار به {website} مراجعه نمایید.");
+                            bot.SendTextMessageAsync(chatId, sb.ToString());
+                        }
 
                     }
 
@@ -160,9 +198,9 @@ namespace EnerdsTelegramBot
 
             }
             //
-            
 
-            if (lblStatus.Text == "ONLINE" || e.Cancel == true )
+
+            if (lblStatus.Text == "ONLINE" || e.Cancel == true)
             {
                 try
                 {
@@ -207,6 +245,31 @@ namespace EnerdsTelegramBot
 
             lblStatus.Text = "OFFLINE";
             lblStatus.ForeColor = Color.Red;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.enerds.io");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.enerds.io");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.alibesi.tv");
         }
     }
 
