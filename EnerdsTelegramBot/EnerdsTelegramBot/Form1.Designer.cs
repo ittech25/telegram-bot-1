@@ -58,15 +58,24 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chkBox1 = new System.Windows.Forms.CheckBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txtMsg = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.btnSelectFile = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
+            this.btnPhoto = new System.Windows.Forms.Button();
+            this.txtCaption = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReport)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -78,8 +87,9 @@
             this.toolStripStatusLabel1,
             this.lblStatusTime,
             this.lblTime});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 904);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 952);
             this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.statusStrip1.Size = new System.Drawing.Size(1006, 23);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
@@ -104,7 +114,7 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(125, 18);
             this.toolStripStatusLabel1.Text = "https://www.enerds.io";
-            
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click_1);
             // 
             // lblStatusTime
             // 
@@ -128,7 +138,7 @@
             this.dgReport.Location = new System.Drawing.Point(3, 20);
             this.dgReport.Name = "dgReport";
             this.dgReport.ReadOnly = true;
-            this.dgReport.Size = new System.Drawing.Size(1000, 322);
+            this.dgReport.Size = new System.Drawing.Size(994, 322);
             this.dgReport.TabIndex = 2;
             // 
             // Column1
@@ -165,7 +175,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.Color.Cornsilk;
-            this.textBox1.Location = new System.Drawing.Point(547, 571);
+            this.textBox1.Location = new System.Drawing.Point(531, 20);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(376, 146);
@@ -176,7 +186,7 @@
             this.lbl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("2  Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl1.Location = new System.Drawing.Point(929, 579);
+            this.lbl1.Location = new System.Drawing.Point(913, 20);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(78, 24);
             this.lbl1.TabIndex = 6;
@@ -186,19 +196,20 @@
             // txtToken
             // 
             this.txtToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtToken.Location = new System.Drawing.Point(538, 25);
+            this.txtToken.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtToken.Location = new System.Drawing.Point(559, 29);
             this.txtToken.Name = "txtToken";
             this.txtToken.PasswordChar = '*';
-            this.txtToken.Size = new System.Drawing.Size(438, 24);
+            this.txtToken.Size = new System.Drawing.Size(438, 20);
             this.txtToken.TabIndex = 0;
             this.txtToken.Text = "1007013476:AAGT_P-VxsjZ7RbHREpjgwyn7C2o5KVyBF8";
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(345, 26);
+            this.button1.Location = new System.Drawing.Point(367, 28);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 24);
+            this.button1.Size = new System.Drawing.Size(89, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Show Token";
             this.button1.UseVisualStyleBackColor = true;
@@ -207,7 +218,7 @@
             // btnHide
             // 
             this.btnHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHide.Location = new System.Drawing.Point(443, 26);
+            this.btnHide.Location = new System.Drawing.Point(461, 28);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(89, 23);
             this.btnHide.TabIndex = 3;
@@ -219,7 +230,7 @@
             // 
             this.rdoBtn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoBtn1.AutoSize = true;
-            this.rdoBtn1.Location = new System.Drawing.Point(184, 15);
+            this.rdoBtn1.Location = new System.Drawing.Point(196, 19);
             this.rdoBtn1.Name = "rdoBtn1";
             this.rdoBtn1.Size = new System.Drawing.Size(46, 21);
             this.rdoBtn1.TabIndex = 4;
@@ -232,7 +243,7 @@
             this.rdoBtn2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoBtn2.AutoSize = true;
             this.rdoBtn2.Checked = true;
-            this.rdoBtn2.Location = new System.Drawing.Point(160, 39);
+            this.rdoBtn2.Location = new System.Drawing.Point(172, 42);
             this.rdoBtn2.Name = "rdoBtn2";
             this.rdoBtn2.Size = new System.Drawing.Size(70, 21);
             this.rdoBtn2.TabIndex = 5;
@@ -245,7 +256,7 @@
             this.lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl2.AutoSize = true;
             this.lbl2.Font = new System.Drawing.Font("2  Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl2.Location = new System.Drawing.Point(230, 26);
+            this.lbl2.Location = new System.Drawing.Point(248, 28);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(109, 24);
             this.lbl2.TabIndex = 7;
@@ -255,7 +266,6 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.chkBox1);
             this.groupBox1.Controls.Add(this.lbl2);
             this.groupBox1.Controls.Add(this.rdoBtn2);
             this.groupBox1.Controls.Add(this.btnStop);
@@ -264,9 +274,9 @@
             this.groupBox1.Controls.Add(this.btnHide);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtToken);
-            this.groupBox1.Location = new System.Drawing.Point(0, 137);
+            this.groupBox1.Location = new System.Drawing.Point(3, 173);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1006, 78);
+            this.groupBox1.Size = new System.Drawing.Size(1000, 78);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Token";
@@ -277,9 +287,10 @@
             this.btnStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStop.Font = new System.Drawing.Font("2  Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnStop.Location = new System.Drawing.Point(88, 17);
+            this.btnStop.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.btnStop.Location = new System.Drawing.Point(87, 19);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(67, 45);
+            this.btnStop.Size = new System.Drawing.Size(67, 50);
             this.btnStop.TabIndex = 4;
             this.toolTip2.SetToolTip(this.btnStop, "توقف بات");
             this.btnStop.UseVisualStyleBackColor = true;
@@ -292,9 +303,10 @@
             this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("2  Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnStart.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btnStart.Location = new System.Drawing.Point(9, 17);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(67, 45);
+            this.btnStart.Size = new System.Drawing.Size(73, 55);
             this.btnStart.TabIndex = 1;
             this.toolTip1.SetToolTip(this.btnStart, "شروع بات");
             this.btnStart.UseVisualStyleBackColor = false;
@@ -302,9 +314,8 @@
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(457, 853);
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExit.Location = new System.Drawing.Point(464, 901);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(96, 48);
             this.btnExit.TabIndex = 9;
@@ -314,10 +325,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgReport);
-            this.groupBox2.Location = new System.Drawing.Point(0, 220);
+            this.groupBox2.Location = new System.Drawing.Point(3, 256);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1006, 345);
+            this.groupBox2.Size = new System.Drawing.Size(1000, 345);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "دستورات دریافتی";
@@ -327,9 +340,9 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Location = new System.Drawing.Point(0, 12);
+            this.groupBox3.Location = new System.Drawing.Point(3, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1006, 119);
+            this.groupBox3.Size = new System.Drawing.Size(1000, 119);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
@@ -342,7 +355,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(3, 20);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1000, 96);
+            this.pictureBox2.Size = new System.Drawing.Size(994, 96);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
@@ -360,47 +373,139 @@
             this.toolTip2.InitialDelay = 500;
             this.toolTip2.ReshowDelay = 0;
             // 
-            // lblTime
-            // 
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(28, 18);
-            this.lblTime.Text = "tool";
-            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // chkBox1
+            // linkLabel1
             // 
-            this.chkBox1.AutoSize = true;
-            this.chkBox1.Font = new System.Drawing.Font("2  Yekan", 8.5F);
-            this.chkBox1.Location = new System.Drawing.Point(345, 50);
-            this.chkBox1.Name = "chkBox1";
-            this.chkBox1.Size = new System.Drawing.Size(68, 22);
-            this.chkBox1.TabIndex = 12;
-            this.chkBox1.Text = "نظرسنجی";
-            this.chkBox1.UseVisualStyleBackColor = true;
-          
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel1.Font = new System.Drawing.Font("Ravie", 20F);
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Purple;
+            this.linkLabel1.Location = new System.Drawing.Point(426, 131);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.linkLabel1.Size = new System.Drawing.Size(157, 36);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "ALIBESI";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.Location = new System.Drawing.Point(139, 20);
+            this.txtMsg.Multiline = true;
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(376, 146);
+            this.txtMsg.TabIndex = 13;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Font = new System.Drawing.Font("2  Yekan", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnSend.Location = new System.Drawing.Point(42, 23);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(91, 36);
+            this.btnSend.TabIndex = 14;
+            this.btnSend.Text = "ارسال پیام";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Location = new System.Drawing.Point(139, 175);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtFilePath.Size = new System.Drawing.Size(376, 24);
+            this.txtFilePath.TabIndex = 15;
+            // 
+            // btnSelectFile
+            // 
+            this.btnSelectFile.Font = new System.Drawing.Font("2  Yekan", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnSelectFile.Location = new System.Drawing.Point(82, 176);
+            this.btnSelectFile.Name = "btnSelectFile";
+            this.btnSelectFile.Size = new System.Drawing.Size(51, 23);
+            this.btnSelectFile.TabIndex = 16;
+            this.btnSelectFile.Text = "...";
+            this.btnSelectFile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSelectFile.UseVisualStyleBackColor = true;
+            this.btnSelectFile.Click += new System.EventHandler(this.btnSelectFile_Click);
+            // 
+            // btnVideo
+            // 
+            this.btnVideo.Font = new System.Drawing.Font("2  Yekan", 9F);
+            this.btnVideo.Location = new System.Drawing.Point(139, 205);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(75, 32);
+            this.btnVideo.TabIndex = 17;
+            this.btnVideo.Text = "ارسال ویدیو";
+            this.btnVideo.UseVisualStyleBackColor = true;
+            // 
+            // btnPhoto
+            // 
+            this.btnPhoto.Font = new System.Drawing.Font("2  Yekan", 9F);
+            this.btnPhoto.Location = new System.Drawing.Point(440, 204);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(75, 33);
+            this.btnPhoto.TabIndex = 18;
+            this.btnPhoto.Text = "ارسال عکس";
+            this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // txtCaption
+            // 
+            this.txtCaption.Location = new System.Drawing.Point(220, 204);
+            this.txtCaption.Name = "txtCaption";
+            this.txtCaption.Size = new System.Drawing.Size(214, 24);
+            this.txtCaption.TabIndex = 19;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.lbl1);
+            this.groupBox4.Controls.Add(this.txtCaption);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.btnPhoto);
+            this.groupBox4.Controls.Add(this.txtMsg);
+            this.groupBox4.Controls.Add(this.btnVideo);
+            this.groupBox4.Controls.Add(this.btnSend);
+            this.groupBox4.Controls.Add(this.btnSelectFile);
+            this.groupBox4.Controls.Add(this.txtFilePath);
+            this.groupBox4.Location = new System.Drawing.Point(3, 607);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1000, 262);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            // 
+            // lblTime
+            // 
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(31, 18);
+            this.lblTime.Text = "time";
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1006, 927);
+            this.ClientSize = new System.Drawing.Size(1006, 975);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnExit);
             this.Font = new System.Drawing.Font("2  Yekan", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -415,6 +520,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,9 +556,17 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusTime;
-        private System.Windows.Forms.ToolStripStatusLabel lblTime;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.CheckBox chkBox1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.TextBox txtMsg;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.Button btnSelectFile;
+        private System.Windows.Forms.Button btnVideo;
+        private System.Windows.Forms.Button btnPhoto;
+        private System.Windows.Forms.TextBox txtCaption;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ToolStripStatusLabel lblTime;
     }
 }
 
