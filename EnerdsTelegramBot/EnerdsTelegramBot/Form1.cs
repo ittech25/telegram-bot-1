@@ -24,7 +24,7 @@ namespace EnerdsTelegramBot
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace EnerdsTelegramBot
         private void Form1_Load(object sender, EventArgs e)
         // address site emoji ha : https://apps.timwhitlock.info/emoji/tables/unicode
         {
-            
+
             //save akhbar to file txt
 
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -99,13 +99,22 @@ namespace EnerdsTelegramBot
         void runBot()
         {
 
-            bot = new Telegram.Bot.TelegramBotClient(Token);
-            this.Invoke(new Action(() =>
-                {
-                    lblStatus.Text = "ONLINE";
-                    lblStatus.ForeColor = Color.Green;
-                }));
             int offSet = 0;
+            if (txtToken.Text == "")
+            {
+                MessageBox.Show("لطفا توکن خود را وارد نمایید", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                bot = new Telegram.Bot.TelegramBotClient(Token);
+                this.Invoke(new Action(() =>
+                    {
+                        lblStatus.Text = "ONLINE";
+                        lblStatus.ForeColor = Color.Green;
+                    }));
+            }
+
+            
 
             while (true)
             {
@@ -323,7 +332,7 @@ namespace EnerdsTelegramBot
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+
             Environment.Exit(0);
 
         }
