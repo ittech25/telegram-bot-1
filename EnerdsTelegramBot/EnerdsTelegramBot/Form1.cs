@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,8 @@ using System.Threading;
 using Telegram.Bot;
 using Telegram;
 using Telegram.Bot.Types.ReplyMarkups;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 using System.Xml;
 using System.IO;
 //This Bot Is Developed By Enerds.io
@@ -32,7 +35,7 @@ namespace EnerdsTelegramBot
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
+            btnStart.BackColor = Color.Transparent;
             string writerfile = @".\token.txt";
             using (StreamWriter writer = new StreamWriter(writerfile))
             {
@@ -41,7 +44,7 @@ namespace EnerdsTelegramBot
             }
             //
 
-            var fileText = File.ReadAllText(@".\token.txt");
+            var fileText = System.IO.File.ReadAllText(@".\token.txt");
             txtToken.Text = fileText;
 
 
@@ -59,13 +62,13 @@ namespace EnerdsTelegramBot
         {
             //save akhbar to file txt
 
-
-
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            timer1.Start();
 
 
 
             //khandane akhbar
-            var fileText = File.ReadAllText(@".\news.txt");
+            var fileText = System.IO.File.ReadAllText(@".\news.txt");
             textBox1.Text = fileText;
             //
 
@@ -73,13 +76,16 @@ namespace EnerdsTelegramBot
             mainKeyboardMarkup = new ReplyKeyboardMarkup();
             KeyboardButton[] row1 =
             {
-                new KeyboardButton("ارتباط با ما"+ " " + "\U0001F4E7"),new KeyboardButton("تماس با ما" + " " + "\U0001F4E7"),
+                new KeyboardButton("آدرس وب سایت ما"+ " " + "\U0001F310"),new KeyboardButton("نظرسنجی"+ " " + "\U0001F4CA"),new KeyboardButton("آخرین اخبار"+ " " + "\U0001F5DE"), new KeyboardButton("وضعیت استریم"+" "+"\U0001F4FA"),
             };
+
 
             KeyboardButton[] row2 =
             {
-                new KeyboardButton("آدرس وب سایت ما"+ " " + "\U0001F4E7"),new KeyboardButton("نظرسنجی"+ " " + "\U0001F4E7"),new KeyboardButton("آخرین اخبار"+ " " + "\U0001F4E7"), new KeyboardButton("وضعیت استریم"),
+                new KeyboardButton("ارتباط با ما"+ " " + "\U0001F4E7"),
             };
+
+
             mainKeyboardMarkup.Keyboard = new KeyboardButton[][]
             {
                 row1,row2
@@ -101,6 +107,7 @@ namespace EnerdsTelegramBot
 
             while (true)
             {
+
                 Telegram.Bot.Types.Update[] update = bot.GetUpdatesAsync(offSet).Result;
 
                 foreach (var up in update)
@@ -123,7 +130,7 @@ namespace EnerdsTelegramBot
                         sb.AppendLine("Address : /Website");
                         sb.AppendLine("News : /News");
                         sb.AppendLine("Stream Status : /StreamStatus");
-                        bot.SendTextMessageAsync(chatId, sb.ToString(), Telegram.Bot.Types.Enums.ParseMode.Default, false, false, 0, mainKeyboardMarkup);
+                        bot.SendTextMessageAsync(chatId, sb.ToString(), ParseMode.Default, false, false, 0, mainKeyboardMarkup);
                     }
                     // yademan bashad hatman az horof kochak estefade shavad be in elat .tolower estefade shode dar line 61 ***
 
@@ -137,7 +144,29 @@ namespace EnerdsTelegramBot
                     {
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine("contact us at info@enerds.io");
-                        bot.SendTextMessageAsync(chatId, sb.ToString());
+
+
+                        ReplyKeyboardMarkup contactKeyboardMarkup = new ReplyKeyboardMarkup();
+                        KeyboardButton[] row1 =
+                        {
+                            new KeyboardButton("تماس با مدیریت"+ " "+ "\U0001F454") , new KeyboardButton("تماس با پشتیبانی"+" "+"\U0001F477"), new KeyboardButton("تماس با استریمر"+" "+"\U0000270C"),
+
+                        };
+                        KeyboardButton[] row2 =
+                        {
+                            new KeyboardButton("بازگشت"+" "+ "\U0001F519")
+                        };
+
+                        contactKeyboardMarkup.Keyboard = new KeyboardButton[][]
+                        {
+                            row1,row2
+                        };
+
+                        bot.SendTextMessageAsync(chatId, sb.ToString(), ParseMode.Default, false, false, 0, contactKeyboardMarkup);
+                    }
+                    else if (text.Contains("بازگشت"))
+                    {
+                        bot.SendTextMessageAsync(chatId, "بازگشت به منو اصلی", ParseMode.Default, false, false, 0, mainKeyboardMarkup);
                     }
                     else if (text.Contains("/website") || text.Contains("آدرس وب سایت ما"))
                     {
@@ -177,17 +206,16 @@ namespace EnerdsTelegramBot
                     }
 
                     dgReport.Invoke(new Action(() =>
-                        {
-                            dgReport.Rows.Add(chatId, from.Username, text, up.Message.MessageId, up.Message.Date.ToString("yyyy/MM/dd - HH:MM"));
-                        }));
-
+                    {
+                        dgReport.Rows.Add(chatId, from.Username, text, up.Message.MessageId, up.Message.Date.ToString("yyyy/MM/dd - HH:MM"));
+                    }));
                 }
+
+
+
             }
 
-
         }
-
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //save akhbar to file txt
@@ -206,7 +234,7 @@ namespace EnerdsTelegramBot
                 {
                     // Do not initialize this variable here.
                     botThread.Abort();
-                    MessageBox.Show("Test");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -262,15 +290,40 @@ namespace EnerdsTelegramBot
             System.Diagnostics.Process.Start("http://www.enerds.io");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://www.enerds.io");
-        }
-
+        
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.alibesi.tv");
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            timer1.Start();
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
+
+
+
+
+
+
 }
+
