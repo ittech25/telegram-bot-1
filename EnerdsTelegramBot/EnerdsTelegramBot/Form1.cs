@@ -24,7 +24,6 @@ namespace EnerdsTelegramBot
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -56,7 +55,8 @@ namespace EnerdsTelegramBot
         private void Form1_Load(object sender, EventArgs e)
         // address site emoji ha : https://apps.timwhitlock.info/emoji/tables/unicode
         {
-
+            var tokenFile = System.IO.File.ReadAllText(@".\token.txt");
+            txtToken.Text = tokenFile;
             //save akhbar to file txt
 
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -114,7 +114,7 @@ namespace EnerdsTelegramBot
                     }));
             }
 
-            
+
 
             while (true)
             {
