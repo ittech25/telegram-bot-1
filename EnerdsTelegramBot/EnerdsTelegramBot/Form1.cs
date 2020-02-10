@@ -10,6 +10,7 @@ using Telegram.Bot.Types;
 using System.IO;
 
 //This Bot Is Developed By Enerds.io
+// Current Version is Alpha 1.0.0.1
 
 namespace EnerdsTelegramBot
 {
