@@ -42,10 +42,6 @@ namespace EnerdsTelegramBot
             var fileText = System.IO.File.ReadAllText(@".\token.txt");
             txtToken.Text = fileText;
 
-
-
-
-
             Token = txtToken.Text;
             botThread = new Thread(new ThreadStart(runBot));
             botThread.Start();
@@ -55,6 +51,7 @@ namespace EnerdsTelegramBot
         private void Form1_Load(object sender, EventArgs e)
         // address site emoji ha : https://apps.timwhitlock.info/emoji/tables/unicode
         {
+
             var tokenFile = System.IO.File.ReadAllText(@".\token.txt");
             txtToken.Text = tokenFile;
             //save akhbar to file txt
@@ -134,21 +131,21 @@ namespace EnerdsTelegramBot
                         if (text.Contains("/start"))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine(from.Username + "Welcome To our BOT");
-                            sb.AppendLine("You can use the commands below");
-                            sb.AppendLine("About our BOT : /AboutUs");
-                            sb.AppendLine("Contact US : /Contact");
-                            sb.AppendLine("Address : /Website");
-                            sb.AppendLine("News : /News");
-                            sb.AppendLine("Stream Status : /StreamStatus");
+                            sb.AppendLine(from.Username + "به ربات Alibesi خوش آمدید" + " " + "\U00002764");
+                            sb.AppendLine("شما می توانید از دستورات زیر استفاده نمایید");
+                            sb.AppendLine("درباره ربات : /AboutBot");
+                            sb.AppendLine("ارتباط با ما : /Contact");
+                            sb.AppendLine("آدرس وبسایت : /Website");
+                            sb.AppendLine("آخرین اخبار : /News");
+                            sb.AppendLine("وضعیت استریم : /StreamStatus");
                             bot.SendTextMessageAsync(chatId, sb.ToString(), ParseMode.Default, false, false, 0, mainKeyboardMarkup);
                         }
                         // yademan bashad hatman az horof kochak estefade shavad be in elat .tolower estefade shode dar line 61 ***
 
-                        else if (text.Contains("/aboutus") || text.Contains("درباره ما"))
+                        else if (text.Contains("/aboutbot") || text.Contains("درباره بات"))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("Our Vision is to help streamers to build  theire career with ease");
+                            sb.AppendLine("Our Vision is to help streamers to build their career with ease, This bot is created by Enerds.io team Specifically for AliBesi. For more information send us an email : info@enerds.io");
                             bot.SendTextMessageAsync(chatId, sb.ToString());
                         }
                         else if (text.Contains("/contact") || text.Contains("ارتباط با ما"))
@@ -175,6 +172,31 @@ namespace EnerdsTelegramBot
 
                             bot.SendTextMessageAsync(chatId, sb.ToString(), ParseMode.Default, false, false, 0, contactKeyboardMarkup);
                         }
+                        else if (text.Contains("تماس با استریمر"))
+                        {
+                            string site = "https://www.alibesi.tv";
+                            string twitch = "https://www.twitch.tv/alibesi";
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine($"برای ارتباط با Alibesi شما می توانید به استریم {twitch} مراجعه نمایید و یا به آدرس besi@alibesi.tv ایمیل بزنید.");
+                            bot.SendTextMessageAsync(chatId, sb.ToString());
+                        }
+                        else if (text.Contains("تماس با پشتیبانی"))
+                        {
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("برای ارتباط با پشتیبانی ربات به آدرس support@enerds.io ایمیل بزنید.");
+                            bot.SendTextMessageAsync(chatId, sb.ToString());
+                        }
+
+                        else if (text.Contains("تماس با مدیریت"))
+                        {
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("برای تماس با مدیریت وبسایت، استریم به آدرس admin@alibesi.tv ایمیل بزنید. ");
+                            bot.SendTextMessageAsync(chatId, sb.ToString());
+                        }
+
+
                         else if (text.Contains("بازگشت"))
                         {
                             bot.SendTextMessageAsync(chatId, "بازگشت به منو اصلی", ParseMode.Default, false, false, 0, mainKeyboardMarkup);
@@ -280,22 +302,14 @@ namespace EnerdsTelegramBot
             DialogResult result = MessageBox.Show("آیا از توقف بات اطمینان دارید", "توقف بات", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if ((result == DialogResult.Yes))
             {
-                try
-                {
-                    // Do not initialize this variable here.
+                botThread.Abort();
+                lblStatus.Text = "OFFLINE";
+                lblStatus.ForeColor = Color.Red;
 
-                    botThread.Abort();
-                    lblStatus.Text = "OFFLINE";
-                    lblStatus.ForeColor = Color.Red;
-                }
-                catch (Exception ex)
-                {
-
-                }
             }
             else
             {
-                return;
+                botThread.Resume();
             }
 
 
@@ -391,6 +405,18 @@ namespace EnerdsTelegramBot
                 FileStream imageFile = System.IO.File.Open(txtFilePath.Text, FileMode.Open);
 
                 bot.SendPhotoAsync(chatId, photo: imageFile, caption: txtCaption.Text);
+            }
+        }
+
+        private void btnVideo_Click(object sender, EventArgs e)
+        {
+            if (dgReport.CurrentRow != null)
+            {
+                int chatId = int.Parse(dgReport.CurrentRow.Cells[0].Value.ToString());
+
+                FileStream videoFile = System.IO.File.Open(txtFilePath.Text, FileMode.Open);
+
+                bot.SendVideoAsync(chatId, video: videoFile, caption: txtCaption.Text);
             }
         }
     }
