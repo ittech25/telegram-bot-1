@@ -9,8 +9,7 @@ using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types;
 using System.IO;
 
-//This Bot Is Developed By Enerds.io
-//current version is alpha 1.0.0.1
+//f6912ba08b0a48d4bf36535b2eb3b1903d9de7d2
 
 namespace EnerdsTelegramBot
 {
