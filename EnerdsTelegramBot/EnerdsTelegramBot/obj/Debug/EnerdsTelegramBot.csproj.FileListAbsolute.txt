@@ -12,3 +12,17 @@ E:\Telegram Bot repo\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\
 E:\Telegram Bot repo\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.csproj.CopyComplete
 E:\Telegram Bot repo\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.exe
 E:\Telegram Bot repo\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.pdb
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\EnerdsTelegramBot.exe.config
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\EnerdsTelegramBot.exe
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\EnerdsTelegramBot.pdb
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\Newtonsoft.Json.dll
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\Telegram.Bot.dll
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\Newtonsoft.Json.xml
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\bin\Debug\Telegram.Bot.xml
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.csprojAssemblyReference.cache
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.Form1.resources
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.Properties.Resources.resources
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.csproj.GenerateResource.cache
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.csproj.CopyComplete
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.exe
+D:\telegram-bot\EnerdsTelegramBot\EnerdsTelegramBot\obj\Debug\EnerdsTelegramBot.pdb
